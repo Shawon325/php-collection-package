@@ -21,7 +21,7 @@ class Collections implements CollectionContract
      * @param array $collect
      * @return Collections
      */
-    public static function make(array $collect): Collections
+    public static function make(array $collect): CollectionContract
     {
         return new self($collect);
     }
@@ -30,7 +30,7 @@ class Collections implements CollectionContract
      * @param callable $callback
      * @return $this
      */
-    public function filter(callable $callback): Collections
+    public function filter(callable $callback): CollectionContract
     {
         $collections = [];
         foreach ($this->collect as $key => $value) {
@@ -47,7 +47,7 @@ class Collections implements CollectionContract
      * @param callable $callback
      * @return $this
      */
-    public function map(callable $callback): Collections
+    public function map(callable $callback): CollectionContract
     {
         $collections = [];
         foreach ($this->collect as $key => $value) {
@@ -80,5 +80,13 @@ class Collections implements CollectionContract
     public function first(): object
     {
         return (object)$this->collect[0];
+    }
+
+    /**
+     * @return $this
+     */
+    public function get(): CollectionContract
+    {
+        return $this;
     }
 }

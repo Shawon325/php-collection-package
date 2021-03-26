@@ -19,8 +19,8 @@ $array = [
     ]
 ];
 
-$filterData = Collections::make($array)->filter(function ($key, $value) {
-    return $value['id'] > 1;
-})->toArray();
-
-print_r($filterData);
+//$filterData = Collections::make($array)->filter(function ($key, $value) {
+//    return $value['id'] > 1;
+//})->toArray();
+//
+//print_r($filterData);
