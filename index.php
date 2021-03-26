@@ -25,5 +25,5 @@ $array = [
 //usort($array, function ($a, $b) {return $a['id'] > $b['id'];});
 //print_r( $array );
 
-$orderByData = Collections::make($array)->orderBy('asc', 'name');
+$orderByData = Collections::make($array)->orderBy('asc', 'name')->toJson();
 print_r($orderByData);

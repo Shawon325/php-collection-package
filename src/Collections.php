@@ -87,7 +87,7 @@ class Collections implements CollectionContract
      */
     public function get(): CollectionContract
     {
-        return $this;
+        return $this->collect;
     }
 
     /**
