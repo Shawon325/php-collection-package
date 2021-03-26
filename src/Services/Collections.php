@@ -1,6 +1,6 @@
 <?php
 
-namespace ShawonCollections;
+namespace ShawonCollections\Services;
 
 use ShawonCollections\Interfaces\CollectionContract;
 
@@ -58,8 +58,27 @@ class Collections implements CollectionContract
         return $this;
     }
 
-    public function toJson()
+    /**
+     * @return false|mixed|string
+     */
+    public function toJson(): mixed
     {
         return json_encode($this->collect);
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return (array)$this->collect;
+    }
+
+    /**
+     * @return object
+     */
+    public function first(): object
+    {
+        return (object)$this->collect[0];
     }
 }
