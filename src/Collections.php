@@ -1,6 +1,6 @@
 <?php
 
-namespace ShawonCollections\Services;
+namespace ShawonCollections;
 
 use ShawonCollections\Interfaces\CollectionContract;
 

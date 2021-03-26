@@ -5,6 +5,12 @@ namespace ShawonCollections\Interfaces;
 interface CollectionContract
 {
     /**
+     * @param array $collect
+     * @return CollectionContract
+     */
+    public static function make(array $collect): CollectionContract;
+
+    /**
      * @param callable $callback
      * @return mixed
      */
