@@ -61,7 +61,7 @@ class Collections implements CollectionContract
     /**
      * @return false|mixed|string
      */
-    public function toJson(): mixed
+    public function toJson()
     {
         return json_encode($this->collect);
     }
@@ -87,6 +87,27 @@ class Collections implements CollectionContract
      */
     public function get(): CollectionContract
     {
+        return $this;
+    }
+
+    /**
+     * @param string $type
+     * @param string $key
+     * @return CollectionContract
+     */
+    public function orderBy(string $type, string $key): CollectionContract
+    {
+        $type = strtoupper($type);
+
+        usort($this->collect, function ($a, $b) use ($type, $key) {
+            if ($type === 'ASC') {
+                return $a[$key] > $b[$key];
+            }
+            if ($type === 'DESC' || $type === 'DSC') {
+                return $a[$key] < $b[$key];
+            }
+        });
+
         return $this;
     }
 }

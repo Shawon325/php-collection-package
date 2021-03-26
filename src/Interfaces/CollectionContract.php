@@ -19,7 +19,7 @@ interface CollectionContract
     /**
      * @return mixed
      */
-    public function toJson(): mixed;
+    public function toJson();
 
     /**
      * @return array
@@ -35,4 +35,11 @@ interface CollectionContract
      * @return CollectionContract
      */
     public function get(): CollectionContract;
+
+    /**
+     * @param string $type
+     * @param string $key
+     * @return CollectionContract
+     */
+    public function orderBy(string $type, string $key): CollectionContract;
 }

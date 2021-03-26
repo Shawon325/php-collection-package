@@ -6,6 +6,10 @@ use ShawonCollections\Services\Collections;
 
 $array = [
     [
+        'id' => 4,
+        'name' => "shawon",
+    ],
+    [
         'id' => 1,
         'name' => "shawon",
     ],
@@ -18,9 +22,8 @@ $array = [
         'name' => "sabbir",
     ]
 ];
+//usort($array, function ($a, $b) {return $a['id'] > $b['id'];});
+//print_r( $array );
 
-//$filterData = Collections::make($array)->filter(function ($key, $value) {
-//    return $value['id'] > 1;
-//})->toArray();
-//
-//print_r($filterData);
+$orderByData = Collections::make($array)->orderBy('asc', 'name');
+print_r($orderByData);
