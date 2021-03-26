@@ -1,0 +1,18 @@
+{
+  "name": "shawon/shawon_collections",
+  "description": "A simple collection copy by laravel collection",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "shawon",
+      "email": "mynameisshawon325@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ShawonCollections\\": "src/"
+    }
+  },
+  "require": {}
+}
