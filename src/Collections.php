@@ -23,7 +23,7 @@ class Collections implements CollectionContract
      */
     public static function make(array $collect): CollectionContract
     {
-        return new self($collect);
+        return new static($collect);
     }
 
     /**
