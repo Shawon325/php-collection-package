@@ -59,6 +59,16 @@ class Collections implements CollectionContract
     }
 
     /**
+     * @param callable $callback
+     */
+    public function each(callable $callback)
+    {
+        foreach ($this->collect as $value) {
+            $callback($value);
+        }
+    }
+
+    /**
      * @return false|mixed|string
      */
     public function toJson()

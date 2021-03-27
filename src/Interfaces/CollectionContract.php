@@ -23,6 +23,11 @@ interface CollectionContract
     public function map(callable $callback): CollectionContract;
 
     /**
+     * @param callable $callback
+     */
+    public function each(callable $callback);
+
+    /**
      * @return mixed
      */
     public function toJson();
