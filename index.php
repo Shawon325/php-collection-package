@@ -23,5 +23,9 @@ $array = [
     ]
 ];
 
+Collections::make($array)->each(function ($value) {
+    print_r($value);
+});
+
 
 

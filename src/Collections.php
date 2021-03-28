@@ -87,17 +87,17 @@ class Collections implements CollectionContract
     /**
      * @return object
      */
-    public function first(): object
+    public function first()
     {
         return (object)$this->collect[0];
     }
 
     /**
-     * @return $this
+     * @return array
      */
-    public function get(): CollectionContract
+    public function get(): array
     {
-        return $this->collect;
+        return (array)$this->collect;
     }
 
     /**

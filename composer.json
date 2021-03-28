@@ -14,5 +14,7 @@
       "ShawonCollections\\": "src/"
     }
   },
-  "require": {}
+  "require": {
+    "ext-json": "*"
+  }
 }

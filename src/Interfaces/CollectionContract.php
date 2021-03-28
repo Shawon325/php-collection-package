@@ -40,12 +40,12 @@ interface CollectionContract
     /**
      * @return object
      */
-    public function first(): object;
+    public function first();
 
     /**
-     * @return CollectionContract
+     * @return array
      */
-    public function get(): CollectionContract;
+    public function get(): array;
 
     /**
      * @param string $type
