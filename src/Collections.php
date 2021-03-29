@@ -23,7 +23,7 @@ class Collections implements CollectionContract
      */
     public static function make(array $collect): CollectionContract
     {
-        return new self($collect);
+        return new static($collect);
     }
 
     /**
@@ -59,6 +59,16 @@ class Collections implements CollectionContract
     }
 
     /**
+     * @param callable $callback
+     */
+    public function each(callable $callback)
+    {
+        foreach ($this->collect as $value) {
+            $callback($value);
+        }
+    }
+
+    /**
      * @return false|mixed|string
      */
     public function toJson()
@@ -77,17 +87,25 @@ class Collections implements CollectionContract
     /**
      * @return object
      */
-    public function first(): object
+    public function first()
     {
         return (object)$this->collect[0];
     }
 
     /**
-     * @return $this
+     * @return array
      */
-    public function get(): CollectionContract
+    public function get(): array
     {
-        return $this->collect;
+        return (array)$this->collect;
+    }
+
+    /**
+     * @return array
+     */
+    public function all(): array
+    {
+        return (array)$this->collect;
     }
 
     /**
@@ -107,6 +125,39 @@ class Collections implements CollectionContract
                 return $a[$key] < $b[$key];
             }
         });
+
+        return $this;
+    }
+
+    /**
+     * @param string $key
+     * @return array
+     */
+    public function pluck(string $key): array
+    {
+        return (array)$this->collect = array_column($this->collect, $key);
+    }
+
+    /**
+     * @return int
+     */
+    public function count(): int
+    {
+        return count($this->collect);
+    }
+
+    /**
+     * @param string $key
+     * @return CollectionContract
+     */
+    public function groupBy(string $key): CollectionContract
+    {
+        $arr = [];
+        foreach ($this->collect as $index => $item) {
+            $arr[$item[$key]][$index] = $item;
+        }
+        ksort($arr, SORT_NUMERIC);
+        $this->collect = $arr;
 
         return $this;
     }
