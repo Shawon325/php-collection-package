@@ -48,9 +48,31 @@ interface CollectionContract
     public function get(): array;
 
     /**
+     * @return array
+     */
+    public function all(): array;
+
+    /**
      * @param string $type
      * @param string $key
      * @return CollectionContract
      */
     public function orderBy(string $type, string $key): CollectionContract;
+
+    /**
+     * @param string $key
+     * @return array
+     */
+    public function pluck(string $key): array;
+
+    /**
+     * @return int
+     */
+    public function count(): int;
+
+    /**
+     * @param string $key
+     * @return CollectionContract
+     */
+    public function groupBy(string $key): CollectionContract;
 }
