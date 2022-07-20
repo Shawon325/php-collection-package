@@ -75,4 +75,9 @@ interface CollectionContract
      * @return CollectionContract
      */
     public function groupBy(string $key): CollectionContract;
+
+    /**
+     * @return array
+     */
+    public function flip(): array;
 }

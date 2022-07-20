@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: collection
+    container_name: collection-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - collection-network
+  nginx:
+    image: nginx:alpine
+    container_name: collection-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./.docker/nginx:/etc/nginx/conf.d/
+    networks:
+      - collection-network
+networks:
+  collection-network:
+    driver: bridge

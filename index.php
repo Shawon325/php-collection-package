@@ -1,5 +1,7 @@
 <?php
 
+echo "Hello I'm running from docker";
+
 require __DIR__ . "/vendor/autoload.php";
 
 use ShawonCollections\Collections;
@@ -23,9 +25,8 @@ $array = [
     ]
 ];
 
-
-
-print_r($arr);
+//$data = Collections::make()->flip();
+//print_r($data);
 
 
 

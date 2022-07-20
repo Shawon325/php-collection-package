@@ -6,6 +6,9 @@ use ShawonCollections\Interfaces\CollectionContract;
 
 class Collections implements CollectionContract
 {
+    /**
+     * @var array
+     */
     private $collect;
 
     /**
@@ -160,5 +163,13 @@ class Collections implements CollectionContract
         $this->collect = $arr;
 
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function flip(): array
+    {
+        return (array)array_flip($this->collect);
     }
 }
